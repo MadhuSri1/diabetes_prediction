@@ -7,7 +7,7 @@ classifier = pickle.load(open(filename, 'rb'))
 
 app = Flask(__name__)
 
-@app.route('/predict')
+@app.route('/')
 
 def home():
     
