@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import pickle
 import numpy as np
 
-filename = 'classifier.pkl'
+filename = 'diabetes.pkl'
 classifier = pickle.load(open(filename, 'rb'))
 
 app = Flask(__name__)
