@@ -13,7 +13,7 @@ def home():
     
     return render_template('ditect.html')  
 
-@app.route('/predict', methods=['POST','GET'])
+@app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
         preg = int(request.form['pregnancies'])
