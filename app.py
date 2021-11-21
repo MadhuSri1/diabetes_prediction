@@ -7,13 +7,13 @@ classifier = pickle.load(open(filename, 'rb'))
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/still-tundra-66612')
 
 def home():
     
     return render_template('ditect.html')  
 
-@app.route('/predict', methods=['POST', 'GET'])
+@app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
         preg = int(request.form['pregnancies'])
