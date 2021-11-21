@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
-import pickle
-import numpy as np
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
+import pickle
+import numpy as np
 
 sentry_sdk.init('YOUR_DSN_HERE', integrations=[FlaskIntegration()])
 
@@ -33,6 +33,9 @@ def predict():
         pred = classifier.predict(data)
         
         return render_template('result.html', prediction=pred)
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 if __name__ == '__main__':
 	app.run(debug=True)
