@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
+
+sentry_sdk.init('YOUR_DSN_HERE', integrations=[FlaskIntegration()])
 
 filename = 'classifier.pkl'
 classifier = pickle.load(open(filename, 'rb'))
