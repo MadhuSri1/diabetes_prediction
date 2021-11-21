@@ -19,7 +19,7 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
-        preg = int(request.form['pregnancies'])
+        pregnancies = int(request.form['pregnancies'])
         glucose = int(request.form['glucose'])
         bp = int(request.form['bloodpressure'])
         st = int(request.form['skinthickness'])
@@ -28,7 +28,7 @@ def predict():
         dpf = float(request.form['dpf'])
         age = int(request.form['age'])
         
-        data = np.array([[preg, glucose, bp, st, insulin, bmi, dpf, age]])
+        data = np.array([[pregnancies, glucose, bp, st, insulin, bmi, dpf, age]])
         my_prediction = classifier.predict(data)
         
         return render_template('result.html', prediction=my_prediction)
