@@ -26,9 +26,9 @@ def predict():
         age = int(request.form['age'])
         
         data = np.array([[preg, glucose, bp, st, insulin, bmi, dpf, age]])
-        my_prediction = classifier.predict(data)
+        pred = classifier.predict(data)
         
-        return render_template('result.html', prediction=my_prediction)
+        return render_template('result.html', prediction=pred)
 
 if __name__ == '__main__':
 	app.run(debug=True)
